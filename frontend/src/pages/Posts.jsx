@@ -2,7 +2,9 @@ import React from 'react'
 
 function Posts() {
   return (
-    <div>Posts</div>
+    <>
+      <h1 className="text-2xl font-bold">Posts</h1>
+    </>
   )
 }
 

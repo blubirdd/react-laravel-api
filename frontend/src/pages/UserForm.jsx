@@ -81,8 +81,16 @@ function UserForm() {
       }
       {!loading && (
         <>
-          {user.id && <h1 className="text-xl p-2 font-bold"> Update user: <span className="font-normal"> {originalUser && originalUser.name} </span></h1>}
-          {!user.id && <h1 className="text-xl p-2 font-bold">Creat new user</h1>}
+          {user.id && <h1 className="text-xl p-2 font-bold"> Update user:
+            <span className="font-normal">
+              {originalUser && originalUser.name}
+            </span>
+          </h1>
+          }
+
+          {!user.id &&
+            <h1 className="text-xl p-2 font-bold">Creat new user</h1>
+          }
           <div className="flex flex-col  max-w-2xl p-4 bg-white border shadow-sm rounded-xl pointer-events-auto dark:bg-gray-800 dark:border-gray-700 dark:shadow-slate-700/[.7]">
             <form onSubmit={onSubmit}>
               <div className="p-2 overflow-y-auto">
