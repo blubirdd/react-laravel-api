@@ -6,6 +6,7 @@ import TableHeader from '../components/headers/TableHeader.jsx';
 import Loading from '../components/Loading.jsx';
 import UserList from '../components/UserList.jsx';
 import Pagination from '../components/Pagination.jsx';
+import ConfirmDialog from '../components/ConfirmDialog.jsx';
 
 function Users() {
   const [users, setUsers] = useState([]);
@@ -15,19 +16,30 @@ function Users() {
     totalPages: 1,
   });
   const { setNotification } = useStateContext();
+  const [confirmDialog, setConfirmDialog] = useState(null);
 
   useEffect(() => {
     getUsers();
   }, [pagination.currentPage]);
 
   const onDelete = (user) => {
-    if (!window.confirm('Are you sure you want to delete this user?')) {
-      return;
-    }
-    axiosClient.delete(`/users/${user.id}`).then(() => {
-      setNotification('User successfully deleted');
-      getUsers();
+    setConfirmDialog({
+      message: 'Are you sure you want to delete '+ user.email +'?',
+      onConfirm: () => handleDeleteConfirmed(user.id),
+      onCancel: () => setConfirmDialog(null),
     });
+  };
+
+
+  const handleDeleteConfirmed = (userId) => {
+    axiosClient.delete(`/users/${userId}`)
+      .then(() => {
+        setNotification('User successfully deleted');
+        getUsers();
+      })
+      .finally(() => {
+        setConfirmDialog(null);
+      });
   };
 
   const getUsers = () => {
@@ -55,18 +67,26 @@ function Users() {
         </div>
       }
 
+      {confirmDialog && (
+        <ConfirmDialog
+          message={confirmDialog.message}
+          onConfirm={confirmDialog.onConfirm}
+          onCancel={confirmDialog.onCancel}
+        />
+      )}
+
       {!loading &&
         <div className="users">
           <TableHeader
             title="Users"
             createLink="/users/new"
-          
           />
+
           <UserList
             users={users}
             onDelete={onDelete}
           />
-          
+
           <Pagination
             currentPage={pagination.currentPage}
             totalPages={pagination.totalPages}
