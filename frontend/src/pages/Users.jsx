@@ -2,9 +2,10 @@ import React from 'react'
 import { useEffect, useState } from "react";
 import axiosClient from "../axios-client.js";
 import { useStateContext } from "../context/ContextProvider.jsx";
+
 import TableHeader from '../components/headers/TableHeader.jsx';
 import Loading from '../components/Loading.jsx';
-import UserList from '../components/UserList.jsx';
+import UserList from '../components/Lists/UserList.jsx';
 import Pagination from '../components/Pagination.jsx';
 import ConfirmDialog from '../components/ConfirmDialog.jsx';
 
@@ -31,8 +32,8 @@ function Users() {
   };
 
 
-  const handleDeleteConfirmed = (userId) => {
-    axiosClient.delete(`/users/${userId}`)
+  const handleDeleteConfirmed = (userID) => {
+    axiosClient.delete(`/users/${userID}`)
       .then(() => {
         setNotification('User successfully deleted');
         getUsers();

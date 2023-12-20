@@ -20,7 +20,7 @@ function UserList({ users, onDelete }) {
 
             <tbody className="divide-y divide-gray-200 dark:divide-gray-700">
               {users.map(user => (
-                <tr key={user.id}>
+                <tr key={user.id} className="hover:bg-gray-100 dark:hover:bg-gray-700">
                   <td className="py-3 whitespace-nowrap text-center text-sm text-gray-800 dark:text-gray-200">{user.id}</td>
                   <td className="px-6 py-3 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">{user.name}</td>
                   <td className="px-6 py-3 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">{user.email}</td>

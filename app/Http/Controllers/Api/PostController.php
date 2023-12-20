@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Post;
 use App\Http\Requests\StorePostRequest;
 use App\Http\Requests\UpdatePostRequest;
+use App\Http\Resources\PostResource;
 
 class PostController extends Controller
 {
@@ -16,7 +17,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        return PostResource::collection(Post::query()->paginate(10));
+        return PostResource::collection(Post::query()->orderBy('id', 'asc')->paginate(10));
     }
 
     /**
@@ -27,7 +28,10 @@ class PostController extends Controller
      */
     public function store(StorePostRequest $request)
     {
-        //
+        $data = $request->validated();
+        $post = Post::create($data);
+
+        return response(new PostResource($post), 201);
     }
 
     /**
@@ -38,7 +42,7 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        //
+        return new PostResource($post);
     }
 
     /**
@@ -50,7 +54,10 @@ class PostController extends Controller
      */
     public function update(UpdatePostRequest $request, Post $post)
     {
-        //
+        $data = $request->validated();
+        $post->update($data);
+
+        return new PostResource($post);
     }
 
     /**
@@ -61,6 +68,8 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
-        //
+        $post->delete();
+
+        return response("", 204);
     }
 }
