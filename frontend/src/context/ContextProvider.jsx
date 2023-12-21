@@ -1,4 +1,3 @@
-// ContextProvider.jsx
 import { createContext, useContext, useState, useEffect } from "react";
 import axiosClient from "../axios-client";
 
@@ -41,7 +40,7 @@ export const ContextProvider = ({ children }) => {
         const { data } = await axiosClient.get("/user");
         setUser(data);
       } catch (error) {
-        // Handle error
+        console.error("Error fetching user data:", error);
       } finally {
         setIsLoading(false);
       }

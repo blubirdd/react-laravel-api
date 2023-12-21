@@ -79,7 +79,15 @@ function Signup() {
                         <label htmlFor="name" className="block text-sm mb-1 dark:text-white">Name</label>
                       </div>
                       <div className="relative">
-                        <input ref={nameRef}  type="text" id="name" name="name" className="py-3 px-4 block w-full border border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600" required aria-describedby="email-error" placeholder="Enter your name" />
+                        <input
+                          className="py-3 px-4 block w-full border border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600"
+                          ref={nameRef}
+                          type="text"
+                          id="name"
+                          name="name"
+                          required aria-describedby="email-error"
+                          placeholder="Enter your name"
+                        />
                       </div>
                     </div>
 
@@ -88,7 +96,15 @@ function Signup() {
                         <label htmlFor="email" className="block text-sm mb-1 dark:text-white">Email</label>
                       </div>
                       <div className="relative">
-                        <input ref={emailRef} type="email" id="email" name="email" className="py-3 px-4 block w-full border border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600" required aria-describedby="email-error" placeholder="Enter your email address" />
+                        <input
+                          className="py-3 px-4 block w-full border border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600"
+                          ref={emailRef}
+                          type="email"
+                          id="email"
+                          name="email"
+                          required aria-describedby="email-error"
+                          placeholder="Enter your email address"
+                        />
                       </div>
                     </div>
 
@@ -97,17 +113,38 @@ function Signup() {
                         <label htmlFor="password" className="block text-sm mb-1 dark:text-white">Password</label>
                       </div>
                       <div className="relative">
-                        <input ref={passwordRef} type="password" id="password" name="password" className="py-3 px-4 block w-full border border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600" required aria-describedby="password-error" placeholder="Password" />
+                        <input
+                          className="py-3 px-4 block w-full border border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600"
+                          ref={passwordRef}
+                          type="password"
+                          id="password"
+                          name="password"
+                          required aria-describedby="password-error"
+                          placeholder="Password"
+                        />
                       </div>
                     </div>
 
                     <div>
                       <div className="relative">
-                        <input ref={passwordConfirmationRef} type="password" id="passwordConfirm" name="password" className="py-3 px-4 block w-full border border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600" required aria-describedby="password-error" placeholder="Repeat Password" />
+                        <input
+                          ref={passwordConfirmationRef}
+                          type="password"
+                          id="passwordConfirm"
+                          name="password"
+                          className="py-3 px-4 block w-full border border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600"
+                          required aria-describedby="password-error"
+                          placeholder="Repeat Password"
+                        />
                       </div>
                     </div>
 
-                    <button type="submit" className="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600">Sign up</button>
+                    <button
+                      type="submit"
+                      className="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+                    >
+                      Sign up
+                    </button>
                   </div>
                 </form>
               </div>

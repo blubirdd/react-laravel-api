@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import { useNavigate, useParams} from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import axiosClient from '../../axios-client.js';
 import { useStateContext } from "../../context/ContextProvider.jsx";
-import Loading from '../../components/Loading.jsx';
+import Loading from '../../components/others/Loading.jsx';
 
 function UserForm() {
 
@@ -95,22 +95,47 @@ function UserForm() {
             <form onSubmit={onSubmit}>
               <div className="p-2 overflow-y-auto">
                 <label className="block text-sm font-medium mb-2 dark:text-white">Name</label>
-                <input type="text" value={user.name} onChange={ev => setUser({ ...user, name: ev.target.value })} className="py-3 px-4 block w-full rounded-md text-sm border border-gray-400 focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400" placeholder="Enter name" />
+                <input type="text"
+                  className="py-3 px-4 block w-full rounded-md text-sm border border-gray-400 focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400"
+                  placeholder="Enter name"
+                  value={user.name}
+                  onChange={ev => setUser({ ...user, name: ev.target.value })}
+                />
               </div>
               <div className="p-2 overflow-y-auto">
                 <label className="block text-sm font-medium mb-2 dark:text-white">Email</label>
-                <input type="email" value={user.email} onChange={ev => setUser({ ...user, email: ev.target.value })} className="py-3 px-4 block w-full rounded-md text-sm border border-gray-400 focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400" placeholder="Enter email" />
+                <input
+                  type="email"
+                  className="py-3 px-4 block w-full rounded-md text-sm border border-gray-400 focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400"
+                  value={user.email}
+                  onChange={ev => setUser({ ...user, email: ev.target.value })}
+                  placeholder="Enter email"
+                />
               </div>
               <div className="p-2 overflow-y-auto">
                 <label className="block text-sm font-medium mb-2 dark:text-white">Password</label>
-                <input type="password" onChange={ev => setUser({ ...user, password: ev.target.value })} className="py-3 px-4 block w-full rounded-md text-sm border border-gray-400 focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400" placeholder="Enter Password" />
+                <input
+                  type="password"
+                  className="py-3 px-4 block w-full rounded-md text-sm border border-gray-400 focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400"
+                  onChange={ev => setUser({ ...user, password: ev.target.value })}
+                  placeholder="Enter Password"
+                />
               </div>
               <div className="p-2 overflow-y-auto">
                 <label className="block text-sm font-medium mb-2 dark:text-white">Confirm password</label>
-                <input type="password" onChange={ev => setUser({ ...user, password_confirmation: ev.target.value })} className="py-3 px-4 block w-full rounded-md text-sm border border-gray-400 focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400" placeholder="Confirm Password" />
+                <input
+                  type="password"
+                  className="py-3 px-4 block w-full rounded-md text-sm border border-gray-400 focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400"
+                  onChange={ev => setUser({ ...user, password_confirmation: ev.target.value })}
+                  placeholder="Confirm Password"
+                />
               </div>
               <div className="flex justify-end items-center gap-x-2 py-3 px-4 border-t dark:border-gray-700">
-                <button onClick={() => navigate(-1)} type="button" className="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-neutral-100 text-gray-800 shadow-sm hover:bg-gray-200 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-white dark:hover:bg-gray-800 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600" data-hs-overlay="#create-user">
+                <button
+                  onClick={() => navigate(-1)}
+                  type="button"
+                  className="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-neutral-100 text-gray-800 shadow-sm hover:bg-gray-200 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-white dark:hover:bg-gray-800 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+                >
                   Cancel
                 </button>
                 <button type="submit" className="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600">

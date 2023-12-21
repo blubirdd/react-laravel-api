@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Link, Navigate, Outlet } from "react-router-dom";
-import { useStateContext } from "../context/ContextProvider.jsx";
-import Navbar from './Navbar.jsx';
-import Sidebar from './Sidebar.jsx';
-import Notification from './Notification.jsx';
+import { useStateContext } from "../../context/ContextProvider.jsx";
+import Navbar from '../headers/Navbar.jsx';
+import Sidebar from '../headers/Sidebar.jsx';
+import Notification from '../Notification.jsx';
 
-function DefaultLayout() {
+function AdminLayout() {
 
   const {notification} = useStateContext();
 
@@ -28,4 +28,4 @@ function DefaultLayout() {
   )
 }
 
-export default DefaultLayout
+export default AdminLayout

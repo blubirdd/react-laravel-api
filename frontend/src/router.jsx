@@ -9,16 +9,16 @@ import Posts from "./pages/Posts";
 import PostForm from "./pages/forms/PostForm";
 import Home from './pages/Home';
 
-import DefaultLayout from './components/DefaultLayout';
-import GuestLayout from './components/GuestLayout';
+import AdminLayout from "./components/layouts/AdminLayout";
+import GuestLayout from "./components/layouts/GuestLayout";
 import UserLayout from './components/layouts/UserLayout';
 import PrivateRoute from './components/Admin/PrivateRoute';
 
 const router = createBrowserRouter([
   {
     path: '/admin',
-    // element: <DefaultLayout />,
-    element: <PrivateRoute  element={<DefaultLayout />} adminOnly={true} />,
+    // element: <AdminLayout />,
+    element: <PrivateRoute  element={<AdminLayout />} adminOnly={true} />,
     children: [
       { path: '/admin', element: <Navigate to="/admin/dashboard" /> },
       { path: 'dashboard', element: <Dashboard /> },

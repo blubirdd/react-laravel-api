@@ -4,7 +4,7 @@ import axiosClient from "../axios-client.js";
 import { useStateContext } from "../context/ContextProvider.jsx";
 
 import TableHeader from '../components/headers/TableHeader.jsx';
-import Loading from '../components/Loading.jsx';
+import Loading from '../components/others/Loading.jsx';
 import PostList from '../components/Lists/PostList.jsx';
 import Pagination from '../components/Pagination.jsx';
 import ConfirmDialog from '../components/ConfirmDialog.jsx';

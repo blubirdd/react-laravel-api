@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { Link, Navigate, Outlet, useLocation } from "react-router-dom";
-import { useStateContext } from "../context/ContextProvider.jsx";
-import axiosClient from "../axios-client.js";
+import { useStateContext } from "../../context/ContextProvider.jsx";
+import axiosClient from "../../axios-client.js";
 
 function Navbar() {
 

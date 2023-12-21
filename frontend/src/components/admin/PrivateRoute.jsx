@@ -1,8 +1,9 @@
 import React from "react";
 import { Navigate } from "react-router-dom";
 import { useStateContext } from "../../context/ContextProvider";
-import DefaultLayout from "../DefaultLayout";
-import Loading from "../Loading";
+import AdminLayout from "../layouts/AdminLayout";
+import Loading from "../others/Loading";
+
 function PrivateRoute({ adminOnly }) {
   const { user, isLoading } = useStateContext();
 
@@ -21,7 +22,7 @@ function PrivateRoute({ adminOnly }) {
     return <Navigate to="/home" />;
   }
 
-  return <DefaultLayout />;
+  return <AdminLayout />;
 }
 
 export default PrivateRoute;
