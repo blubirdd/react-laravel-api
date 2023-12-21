@@ -23,6 +23,9 @@ Route::middleware('auth:sanctum')->group(function () {
         return $request->user();
     });
 
+});
+
+Route::middleware('auth:sanctum', 'admin')->group(function () {
     Route::apiResource('/users', UserController::class);
     Route::apiResource('/posts', PostController::class);
 });

@@ -1,25 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { Link, Navigate, Outlet } from "react-router-dom";
 import { useStateContext } from "../context/ContextProvider.jsx";
-import { useLocation } from 'react-router-dom';
 import Navbar from './Navbar.jsx';
 import Sidebar from './Sidebar.jsx';
 import Notification from './Notification.jsx';
 
 function DefaultLayout() {
 
-  const { notification } = useStateContext();
-
-  //reinitialize preline js plugin
-  const location = useLocation();
-
-  useEffect(() => {
-    import('preline/preline');
-  }, []);
-
-  useEffect(() => {
-    HSStaticMethods.autoInit();
-  }, [location.pathname]);
+  const {notification} = useStateContext();
 
   return (
     <>

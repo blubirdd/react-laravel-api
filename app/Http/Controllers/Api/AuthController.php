@@ -20,6 +20,7 @@ class AuthController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
+            'role' => 'user'
         ]);
 
         $token = $user->createToken('main')->plainTextToken;
@@ -38,7 +39,11 @@ class AuthController extends Controller
         /** @var \App\Models\User $user */
         $user = Auth::user();
         $token = $user->createToken('main')->plainTextToken;
-        return response(compact('user', 'token'));
+        return response()->json([
+            'user' => $user,
+            'token' => $token,
+            'role' => $user->role,
+        ]);
     }
 
     public function logout(Request $request)

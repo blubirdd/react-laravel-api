@@ -17,7 +17,6 @@ body {
     margin: 0;
     padding: 0;
     font-size: 14px;
-    /* color: #212121; */
     background-color: #f6f6f6;
 }
 
@@ -29,7 +28,3 @@ body {
     margin-bottom: 1rem;
 }
 
-
-/* textarea:focus, input:focus{
-    outline: none;
-} */

@@ -80,7 +80,7 @@ function Posts() {
         <div className="posts">
           <TableHeader
             title="Posts"
-            createLink="/posts/new"
+            createLink="/admin/posts/new"
           />
 
           <PostList

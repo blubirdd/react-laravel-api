@@ -80,7 +80,7 @@ function Users() {
         <div className="users">
           <TableHeader
             title="Users"
-            createLink="/users/new"
+            createLink="/admin/users/new"
           />
 
           <UserList

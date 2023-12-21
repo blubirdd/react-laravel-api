@@ -26,7 +26,7 @@ function UserList({ users, onDelete }) {
                   <td className="px-6 py-3 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">{user.email}</td>
                   <td className="px-6 py-3 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">{user.created_at}</td>
                   <td className="px-6 py-2 whitespace-nowrap space-x-1 text-sm font-medium">
-                    <Link to={'/users/' + user.id}>
+                    <Link to={'/admin/users/' + user.id}>
                       <button type="button" className="py-1 px-2 inline-flex items-center bg-opacity-80 bg-op text-sm font-semibold rounded-lg border border-transparent bg-sky-900 text-gray-200 hover:bg-sky-800 disabled:opacity-50 disabled:pointer-events-none dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600">
                         Edit
                       </button>

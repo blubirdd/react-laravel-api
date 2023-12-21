@@ -40,7 +40,7 @@ function PostForm() {
 			axiosClient.put(`/posts/${post.id}`, post)
 				.then(() => {
 					setNotification('Post successfully updated')
-					navigate('/posts')
+					navigate('/admin/posts')
 				})
 				.catch(err => {
 					const response = err.response;
@@ -52,7 +52,7 @@ function PostForm() {
 			axiosClient.post('/posts', post)
 				.then(() => {
 					setNotification('Post successfully created')
-					navigate('/posts')
+					navigate('/admin/posts')
 				})
 				.catch(err => {
 					const response = err.response;
@@ -97,7 +97,7 @@ function PostForm() {
 							</div>
 							<div className="p-2 overflow-y-auto">
 								<label className="block text-sm font-medium mb-2 dark:text-white">Description</label>
-								<textarea value={post.description} onChange={ev => setpost({ ...post, description: ev.target.value })} class="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600" rows="3" placeholder="Enter Description..."></textarea>
+								<textarea value={post.description} onChange={ev => setpost({ ...post, description: ev.target.value })} className="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600" rows="3" placeholder="Enter Description..."></textarea>
 							</div>
 							<div className="flex justify-end items-center gap-x-2 py-3 px-4 border-t dark:border-gray-700">
 								<button onClick={() => navigate(-1)} type="button" className="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-neutral-100 text-gray-800 shadow-sm hover:bg-gray-200 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-white dark:hover:bg-gray-800 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600">

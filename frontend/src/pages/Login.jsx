@@ -1,6 +1,6 @@
 import React from 'react'
 import axiosClient from "../axios-client.js";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { createRef } from "react";
 import { useStateContext } from "../context/ContextProvider.jsx";
 import { useState } from "react";
@@ -9,7 +9,8 @@ function Login() {
 
   const emailRef = createRef()
   const passwordRef = createRef()
-  const { setUser, setToken } = useStateContext()
+  const { setUser, setToken, setUserRole } = useStateContext();
+  const navigate = useNavigate();
   const [message, setMessage] = useState(null)
 
   const onSubmit = ev => {
@@ -21,8 +22,10 @@ function Login() {
     }
     axiosClient.post('/login', payload)
       .then(({ data }) => {
-        setUser(data.user)
+        setUser(data.user);
         setToken(data.token);
+        setUserRole(data.role);
+        // navigate(data.role === 'admin' ? '/admin/dashboard' : '/home');
       })
       .catch((err) => {
         const response = err.response;
