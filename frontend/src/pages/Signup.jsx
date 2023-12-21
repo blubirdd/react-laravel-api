@@ -73,23 +73,22 @@ function Signup() {
                 }
 
                 <form onSubmit={onSubmit}>
-                  <div className="grid">
+                  <div className="grid gap-y-2">
                     <div>
                       <div className="flex justify-between items-center">
                         <label htmlFor="name" className="block text-sm mb-1 dark:text-white">Name</label>
                       </div>
                       <div className="relative">
-                        <input ref={nameRef}  type="text" id="name" name="name" className="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600" required aria-describedby="email-error" placeholder="Enter your name" />
+                        <input ref={nameRef}  type="text" id="name" name="name" className="py-3 px-4 block w-full border border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600" required aria-describedby="email-error" placeholder="Enter your name" />
                       </div>
                     </div>
-
 
                     <div>
                       <div className="flex justify-between items-center">
                         <label htmlFor="email" className="block text-sm mb-1 dark:text-white">Email</label>
                       </div>
                       <div className="relative">
-                        <input ref={emailRef} type="email" id="email" name="email" className="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600" required aria-describedby="email-error" placeholder="Enter your email address" />
+                        <input ref={emailRef} type="email" id="email" name="email" className="py-3 px-4 block w-full border border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600" required aria-describedby="email-error" placeholder="Enter your email address" />
                       </div>
                     </div>
 
@@ -98,13 +97,13 @@ function Signup() {
                         <label htmlFor="password" className="block text-sm mb-1 dark:text-white">Password</label>
                       </div>
                       <div className="relative">
-                        <input ref={passwordRef} type="password" id="password" name="password" className="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600" required aria-describedby="password-error" placeholder="Password" />
+                        <input ref={passwordRef} type="password" id="password" name="password" className="py-3 px-4 block w-full border border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600" required aria-describedby="password-error" placeholder="Password" />
                       </div>
                     </div>
 
                     <div>
                       <div className="relative">
-                        <input ref={passwordConfirmationRef} type="password" id="passwordConfirm" name="password" className="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600" required aria-describedby="password-error" placeholder="Repeat Password" />
+                        <input ref={passwordConfirmationRef} type="password" id="passwordConfirm" name="password" className="py-3 px-4 block w-full border border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600" required aria-describedby="password-error" placeholder="Repeat Password" />
                       </div>
                     </div>
 
