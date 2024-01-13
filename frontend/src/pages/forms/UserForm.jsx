@@ -81,7 +81,7 @@ function UserForm() {
       }
       {!loading && (
         <>
-          {user.id && <h1 className="text-xl p-2 font-bold"> Update user:
+          {user.id && <h1 className="text-xl p-2 font-bold"> Update user:&nbsp;
             <span className="font-normal">
               {originalUser && originalUser.name}
             </span>

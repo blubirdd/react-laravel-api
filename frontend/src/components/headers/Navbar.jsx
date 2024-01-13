@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { Link, Navigate, Outlet, useLocation } from "react-router-dom";
 import { useStateContext } from "../../context/ContextProvider.jsx";
 import axiosClient from "../../axios-client.js";
-
+import logo from "/rl-logo.png"
 function Navbar() {
 
   const { user, token, setUser, setToken } = useStateContext();
@@ -21,13 +21,6 @@ function Navbar() {
       })
   }
 
-  // useEffect(() => {
-  //   axiosClient.get('/user')
-  //     .then(({ data }) => {
-  //       setUser(data)
-  //     })
-  // }, [])
-
   //reinitialize preline js plugin
   const location = useLocation();
 
@@ -42,20 +35,57 @@ function Navbar() {
   return (
     <>
       <header className="flex flex-wrap sm:justify-start sm:flex-nowrap z-50 w-full bg-white border-b text-sm py-1 sm:py-2 dark:bg-slate-900 dark:border-gray-700">
-        <nav className="flex basis-full items-center w-full mx-auto px-4 sm:px-6 lg:px-8" aria-label="Global">
+        <nav className="flex basis-full items-center w-full max-w-[88rem] mx-auto py-2" aria-label="Global">
+          <div className="">
+            <a
+              className="flex text-xl font-semibold dark:text-white dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+              href="/"
+            >
+              <img src="/rl-logo.png" className="w-8" alt="logo" />
+              <p className="p-1 text-md">Navbar</p> 
+            </a>
+          </div>
+          
           <div className="w-full flex items-center justify-end ">
+
+            {/* notification button */} 
+            <div className="hs-dropdown [--trigger:hover] px-2  z-50">
+              <button
+                type="button"
+                className="w-[2.375rem] h-[2.375rem] hs-dropdown-toggle inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-full border border-transparent text-gray-500 hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+                data-hs-offcanvas="#hs-offcanvas-left"
+              >
+                <svg className="w-5 h-5 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 21">
+                  <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 3.464V1.1m0 2.365a5.338 5.338 0 0 1 5.133 5.368v1.8c0 2.386 1.867 2.982 1.867 4.175C15 15.4 15 16 14.462 16H1.538C1 16 1 15.4 1 14.807c0-1.193 1.867-1.789 1.867-4.175v-1.8A5.338 5.338 0 0 1 8 3.464ZM4.54 16a3.48 3.48 0 0 0 6.92 0H4.54Z" />
+                </svg>
+              </button>
+              <div className="hs-dropdown-menu transition-[opacity,margin] duration hs-dropdown-open:opacity-100 opacity-0 hidden min-w-[20rem] border bg-gray-50 shadow-md rounded-lg p-2 mt-2 dark:bg-gray-800 dark:border dark:border-gray-700 dark:divide-gray-700 after:h-4 after:absolute after:-bottom-4 after:start-0 after:w-full before:h-4 before:absolute before:-top-4 before:start-0 before:w-full">
+                <div className="py-2 first:pt-0 last:pb-0">
+                  <span className="block py-3 px-3 text-sm text-black dark:text-white">
+                    Your notifications will show up here
+                  </span>
+                </div>
+              </div>
+            </div>
+
             <div className="flex flex-row items-center justify-end gap-2">
-              <div className="hs-dropdown relative inline-flex z-50">
-                <button id="hs-dropdown-custom-trigger" type="button" className="hs-dropdown-toggle py-1 ps-1 pe-3 inline-flex items-center gap-x-2 text-sm font-semibold rounded-full border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-white dark:hover:bg-gray-800 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600">
+              <div className="hs-dropdown [--trigger:hover] relative inline-flex z-50">
+                <button id="hs-dropdown-custom-trigger"
+                  type="button"
+                  className="hs-dropdown-toggle py-1 ps-1 pe-3 inline-flex items-center gap-x-2 text-sm font-semibold rounded-full border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-white dark:hover:bg-gray-800 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+                  data-hs-offcanvas="#hs-offcanvas-left"
+                >
                   <img className="w-8 h-auto rounded-full" src="https://i.pinimg.com/originals/8b/16/7a/8b167af653c2399dd93b952a48740620.jpg" alt="User" />
                   <span className="text-gray-600 font-medium truncate max-w-[7.5rem] dark:text-gray-400">{user.name}</span>
                   <svg className="hs-dropdown-open:rotate-180 w-4 h-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m6 9 6 6 6-6" /></svg>
                 </button>
-                <div className="hs-dropdown-menu transition-[opacity,margin] duration hs-dropdown-open:opacity-100 opacity-0 hidden min-w-[15rem] bg-white shadow-md rounded-lg p-2 mt-2 dark:bg-gray-800 dark:border dark:border-gray-700" aria-labelledby="hs-dropdown-custom-trigger">
+                <div className="hs-dropdown-menu transition-[opacity,margin] duration hs-dropdown-open:opacity-100 opacity-0 hidden min-w-[15rem] border bg-gray-50 shadow-md rounded-lg p-2 mt-2 dark:bg-gray-800 dark:border dark:border-gray-700 dark:divide-gray-700 after:h-4 after:absolute after:-bottom-4 after:start-0 after:w-full before:h-4 before:absolute before:-top-4 before:start-0 before:w-full">
+
                   <div className="py-3 px-5 -m-2 bg-gray-100 rounded-t-lg dark:bg-gray-700">
                     <p className="text-sm text-gray-500 dark:text-gray-400">Signed in as</p>
                     <p className="text-sm font-medium text-gray-800 dark:text-gray-300">{user.email}</p>
                   </div>
+
                   <div className="mt-2 py-2 first:pt-0 last:pb-0">
                     {user.role === 'admin' && (
                       <Link to="/admin" className="w-full text-start flex items-center gap-x-3.5 py-2 px-2.5 hs-accordion-active:text-blue-600 hs-accordion-active:hover:bg-transparent text-sm text-slate-700 rounded-lg hover:bg-gray-100 dark:bg-gray-800 dark:hover:bg-gray-900 dark:text-slate-400 dark:hover:text-slate-300 dark:hs-accordion-active:text-white dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600">
@@ -83,6 +113,7 @@ function Navbar() {
           </div>
         </nav>
       </header>
+
     </>
   )
 }
